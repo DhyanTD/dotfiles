@@ -3,7 +3,7 @@ This is my set of linux dotfiles I use on my hyprland fedora setup
 
 A Big Thanks to stow for making it so easy to maintain dotfiles : https://www.gnu.org/software/stow/
 
-For someone like me who likes to play around with linux config and keeps on spicying things up, this on "STOW" is a bless.
+For someone like me who likes to play around with linux config and keeps on spicying things up, "STOW" is a bless.
 
 Previously, I Used to maintain idividual repo for all the dotfiles...
 
