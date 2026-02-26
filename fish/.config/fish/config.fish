@@ -36,8 +36,8 @@ set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 fish_add_path $PNPM_HOME
 
 # fnm
-fish_add_path $HOME/.fnm
-eval (fnm env)
+# fish_add_path $HOME/.fnm
+# eval (fnm env)
 
 zoxide init fish | source
 
@@ -55,4 +55,4 @@ export VISUAL='nvim'
 # end
 
 
-string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+# string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
