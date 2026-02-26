@@ -1,31 +1,58 @@
-function fish_prompt -d "Write out the prompt"
-    # This shows up as USER@HOST /home/user/ >, with the directory colored
-    # $USER and $hostname are set by fish, so you can just use them
-    # instead of using `whoami` and `hostname`
-    printf '%s@%s %s%s%s > ' $USER $hostname \
-        (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
+set -x PATH /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin $PATH
+# oh-my-posh init fish --config $HOME/.poshthemes/catppuccin.omp.json | source
+oh-my-posh init fish --config $HOME/.poshthemes/M365Princess.omp.json | source
+
+
+if status is-interactive
+    # Commands to run in interactive sessions can go here
 end
 
-if status is-interactive # Commands to run in interactive sessions can go here
+set -x ANDROID_HOME $HOME/Android/Sdk
+set -x PATH $PATH $ANDROID_HOME/emulator
+set -x PATH $PATH $ANDROID_HOME/tools
+set -x PATH $PATH $ANDROID_HOME/tools/bin
+set -x PATH $PATH $ANDROID_HOME/platform-tools
+set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
+set -x TERM tmux-256color
+export XDG_DATA_DIRS="/home/linuxbrew/.linuxbrew/share:$XDG_DATA_DIRS"
+set -x PATH $ANDROID_HOME/emulator $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $ANDROID_HOME/platform-tools $PATH
 
-    # No greeting
-    set fish_greeting
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/dhyan/.cache/lm-studio/bin
 
-    # Use starship
-    starship init fish | source
-    if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
-        cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
-    end
+set -x LANG en_US.UTF-8
+set -x LC_ALL en_US.UTF-8
 
-    # Aliases
-    alias pamcan pacman
-    alias ls 'eza --icons'
-    alias clear "printf '\033[2J\033[3J\033[1;1H'"
-    alias q 'qs -c ii'
-    
-end
 
-# Start ssh-agent if not running
-if not set -q SSH_AUTH_SOCK
-    ssh-agent -c | source
-end
+# cargo
+fish_add_path $HOME/.cargo/bin
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+fish_add_path $BUN_INSTALL/bin
+
+# pnpm
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+fish_add_path $PNPM_HOME
+
+# fnm
+fish_add_path $HOME/.fnm
+eval (fnm env)
+
+zoxide init fish | source
+
+# tmuxifier
+set -gx PATH ~/.tmuxifier/bin $PATH
+eval (tmuxifier init - fish)
+
+set -g theme_powerline_fonts yes 
+set -g theme_nerd_fonts yes
+
+export EDITOR='nvim'
+export VISUAL='nvim'
+# function fish_greeting
+#   pokemon-colorscripts --no-title --shiny -n charizard
+# end
+
+
+string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
