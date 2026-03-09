@@ -1,6 +1,6 @@
 # Set a custom session root path. Default is `$HOME`.
 # Must be called before `initialize_session`.
-session_root "~/Documents/Github/primarc-crm-frontend/"
+session_root "~/Documents/Github/smoketrees/primarc-crm-frontend/"
 
 # Create session with specified name if it does not already exist. If no
 # argument is given, session name will be based on layout file name.

@@ -56,3 +56,25 @@ export VISUAL='nvim'
 
 
 # string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+
+# fish_add_path ~/.local/bin
+# function fish_greeting
+#     pokemon-colorscripts -r
+#     hyfetch --backend neofetch # Or neofetch
+# end
+
+# function fish_greeting
+    # pokemon-colorscripts -r --no-title
+    # pokeshell -b pikachu
+    # hyfetch --backend neofetch
+# end
+
+#pokeshell
+set -gx PATH ~/.config/pokeshell $PATH
+
+# pnpm
+set -gx PNPM_HOME "/home/dhyan/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

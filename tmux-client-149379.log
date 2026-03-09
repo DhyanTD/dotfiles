@@ -286,3 +286,8 @@
 1772129861.912499 peer 0x55f4e57ced70 message 207
 1772129861.912508 sending message 208 to peer 0x55f4e57ced70 (0 bytes)
 1772129864.654669 peer 0x55f4e57ced70 message 214
+1772132614.657717 client_signal: Hangup
+1772132614.657756 sending message 205 to peer 0x55f4e57ced70 (0 bytes)
+1772132614.657768 client_signal: Continued
+1772132614.657779 sending message 216 to peer 0x55f4e57ced70 (0 bytes)
+1772132614.657786 client loop exit

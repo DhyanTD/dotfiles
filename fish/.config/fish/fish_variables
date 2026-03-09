@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export JAVA_HOME:/usr/lib/jvm/java\x2d17\x2dopenjdk\x2damd64
 SETUVAR --export --path PATH:/usr/local/sbin\x1e/usr/local/bin\x1e/usr/sbin\x1e/usr/bin\x1e/sbin\x1e/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/sbin\x1e/usr/bin\x1e/sbin\x1e/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/sbin\x1e/usr/bin\x1e/sbin\x1e/bin
 SETUVAR --export SSH_AGENT_PID:34857
 SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dMXqNC3BQWV3P/agent\x2e34856
@@ -31,6 +32,7 @@ SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
 SETUVAR fish_cursor_default:block
+SETUVAR fish_greeting:\x1d
 SETUVAR fish_key_bindings:fish_vi_key_bindings
 SETUVAR fish_pager_color_background:\x1d
 SETUVAR fish_pager_color_completion:B3A06D
@@ -47,4 +49,4 @@ SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
 SETUVAR fish_prompt_status:off
 SETUVAR fish_prompt_use_nerd_fonts:yes
-SETUVAR --export fish_user_paths:/usr/local/mysql/bin\x1e/home/dhyan/\x2elocal/share/pnpm\x1e/home/dhyan/\x2ecargo/bin\x1e/usr/local/bin\x1e/home/dhyan/\x2efzf/bin
+SETUVAR --export fish_user_paths:/home/dhyan/\x2elocal/bin\x1e/usr/local/mysql/bin\x1e/home/dhyan/\x2elocal/share/pnpm\x1e/home/dhyan/\x2ecargo/bin\x1e/usr/local/bin\x1e/home/dhyan/\x2efzf/bin
