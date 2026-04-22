@@ -3,7 +3,11 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 -- vim.cmd.colorscheme "one_monokai"
-vim.cmd([[colorscheme synthwave84]])
+-- vim.cmd([[colorscheme synthwave84]])
+-- vim.cmd("colorscheme gruvbox")
+vim.cmd.colorscheme('everforest')
+-- vim.cmd.colorscheme('catppuccin')
+-- vim.cmd.colorscheme('tokyonight.nvim')
 
 vim.g.mapleader = " "
 
