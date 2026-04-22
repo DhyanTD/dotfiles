@@ -49,4 +49,4 @@ SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
 SETUVAR fish_prompt_status:off
 SETUVAR fish_prompt_use_nerd_fonts:yes
-SETUVAR --export fish_user_paths:/home/dhyan/\x2elocal/bin\x1e/usr/local/mysql/bin\x1e/home/dhyan/\x2elocal/share/pnpm\x1e/home/dhyan/\x2ecargo/bin\x1e/usr/local/bin\x1e/home/dhyan/\x2efzf/bin
+SETUVAR --export fish_user_paths:/home/dhyan/\x2eopencode/bin\x1e/home/dhyan/\x2elocal/bin\x1e/usr/local/mysql/bin\x1e/home/dhyan/\x2elocal/share/pnpm\x1e/home/dhyan/\x2ecargo/bin\x1e/usr/local/bin\x1e/home/dhyan/\x2efzf/bin

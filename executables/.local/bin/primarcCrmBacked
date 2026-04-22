@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+SESSION="primarcCrmBackend"
+ROOT="$HOME/Documents/Github/smoketrees/primarc-crm-backend"
+
+# Check if session exists
+tmux has-session -t $SESSION 2>/dev/null
+
+if [ $? != 0 ]; then
+  # Create session
+  tmux new-session -d -s $SESSION -c "$ROOT"
+
+  # Window: Editor
+  tmux rename-window -t $SESSION:0 "PCRMBackend_editor"
+
+  # Pane 0 → nvim
+  tmux send-keys -t $SESSION:0 "nvim" C-m
+
+  # Pane 1 → npm run dev
+  tmux split-window -h -t $SESSION:0 -c "$ROOT"
+  tmux send-keys -t $SESSION:0.1 "npm run dev" C-m
+
+  # Pane 2 → npm run watch
+  tmux split-window -v -t $SESSION:0.1 -c "$ROOT"
+  tmux send-keys -t $SESSION:0.2 "npm run watch" C-m
+
+  # Focus back to editor
+  tmux select-pane -t $SESSION:0.0
+fi
+
+# Attach to session
+tmux attach -t $SESSION
