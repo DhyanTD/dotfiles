@@ -10,6 +10,10 @@ vim.g.mapleader = " "
 vim.opt.swapfile = false
 vim.opt.smartcase = true
 
+
+-- use real terminal colors
+vim.opt.termguicolors = true
+
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
