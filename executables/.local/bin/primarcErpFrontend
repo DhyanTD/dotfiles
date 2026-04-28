@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+SESSION="PrimarcErpFrontend"
+ROOT="$HOME/Documents/Github/smoketrees/primarc-erp-frontend"
+
+# Check if session exists
+tmux has-session -t $SESSION 2>/dev/null
+
+if [ $? != 0 ]; then
+  # Create session
+  tmux new-session -d -s $SESSION -c "$ROOT"
+
+  # Window: Editor
+  tmux rename-window -t $SESSION:0 "Primarc Erp Frontend – Editor"
+
+  # Pane 0 → nvim
+  tmux send-keys -t $SESSION:0 "nvim" C-m
+
+  # Pane 1 → npm run dev
+  tmux split-window -h -t $SESSION:0 -c "$ROOT"
+  tmux send-keys -t $SESSION:0.1 "npm run dev" C-m
+
+  # Focus back to editor
+  tmux select-pane -t $SESSION:0.0
+fi
+
+# Attach
+tmux attach -t $SESSION
