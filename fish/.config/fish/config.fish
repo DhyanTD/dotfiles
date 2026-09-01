@@ -38,6 +38,8 @@ fish_add_path $PNPM_HOME
 # fnm
 # fish_add_path $HOME/.fnm
 # eval (fnm env)
+fnm env --use-on-cd | source
+
 
 zoxide init fish | source
 
@@ -81,3 +83,45 @@ end
 
 # opencode
 fish_add_path /home/dhyan/.opencode/bin
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/dhyan/.local/bin" $PATH
+set -x GPG_TTY (tty)
+
+# mimocode
+fish_add_path /home/dhyan/.mimocode/bin
+
+## just restricting npm and pnpm memory usage
+function npm
+    if test (count $argv) -ge 2; and test "$argv[1]" = "run"; and test "$argv[2]" = "dev"
+        systemd-run --user --scope \
+            -p MemoryHigh=2500M \
+            -p MemoryMax=3500M \
+            (command -s npm) $argv
+    else
+        command npm $argv
+    end
+end
+
+function pnpm
+    if test (count $argv) -ge 2; and test "$argv[1]" = "run"; and test "$argv[2]" = "dev"
+        systemd-run --user --scope \
+            -p MemoryHigh=2500M \
+            -p MemoryMax=3500M \
+            (command -s pnpm) $argv
+
+    else if test (count $argv) -ge 1; and test "$argv[1]" = "dev"
+        systemd-run --user --scope \
+            -p MemoryHigh=2500M \
+            -p MemoryMax=3500M \
+            (command -s pnpm) $argv
+
+    else
+        command pnpm $argv
+    end
+end

@@ -19,6 +19,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
+-- vim.opt.linebreak = true
+-- vim.opt.breakindent = true
 vim.o.statuscolumn = "%s %l %r"
 -- make relative line numbers visible when using transparent background
 vim.api.nvim_create_autocmd("ColorScheme", {

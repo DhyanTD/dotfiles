@@ -73,6 +73,7 @@ vim.api.nvim_create_autocmd({ "ColorScheme", "TermOpen" }, {
 vim.g.mapleader = " "
 
 vim.opt.swapfile = false
+vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 

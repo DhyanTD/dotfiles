@@ -1,40 +1,40 @@
 return {
-	"stevearc/conform.nvim",
-	opts = {
-		notify_on_error = false,
-		default_format_opts = {
-			lsp_format = "fallback",
-		},
-		formatters_by_ft = {
-			lua = { "stylua" },
-			javascript = { "prettierd" },
-			json = { "prettier" },
-			css = { "prettierd" },
-			scss = { "prettierd" },
-			javascriptreact = { "prettierd" },
-			typescript = { "prettierd" },
-			html = { "prettierd" },
-			typescriptreact = { "prettierd" },
-			php = { "pretty-php" },
-			go = { "goimports", "gofumpt" },
-			xml = { "xmlformat" },
-			sql = { "sqlfmt" },
-		},
-		format_on_save = {
-			timeout_ms = 500,
-			lsp_fallback = true,
-		},
-	},
-	-- config = function()
-	-- local conform = require("conform")
+  "stevearc/conform.nvim",
+  opts = {
+    notify_on_error = false,
+    default_format_opts = {
+      lsp_format = "fallback",
+    },
+    formatters_by_ft = {
+      lua = { "stylua" },
+      javascript = { "prettier" },
+      json = { "prettier" },
+      css = { "prettier" },
+      scss = { "prettier" },
+      javascriptreact = { "prettier" },
+      typescript = { "prettier" },
+      html = { "prettier" },
+      typescriptreact = { "prettier" },
+      php = { "pretty-php" },
+      go = { "goimports", "gofumpt" },
+      xml = { "xmlformat" },
+      sql = { "sqlfmt" },
+    },
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_fallback = true,
+    },
+  },
+  -- config = function()
+  -- local conform = require("conform")
 
-	-- vim.keymap.set({ "n", "v" }, "<leader>gf", function()
-	-- 	conform.format({
-	-- 		async = true,
-	-- 		lsp_fallback = true,
-	-- 	})
-	-- end, { desc = "Format file or range (in visual mode)" })
-	-- end,
+  -- vim.keymap.set({ "n", "v" }, "<leader>gf", function()
+  -- 	conform.format({
+  -- 		async = true,
+  -- 		lsp_fallback = true,
+  -- 	})
+  -- end, { desc = "Format file or range (in visual mode)" })
+  -- end,
 }
 
 -- return {
