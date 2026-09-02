@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -gt 0 ]]; then
+  echo "Usage: LoadMySkills (no arguments — copies to current directory)" >&2
+  exit 1
+fi
+
+resolve_source() {
+  local script_path dotfiles_root candidate
+
+  if command -v readlink >/dev/null 2>&1 && readlink -f "$0" >/dev/null 2>&1; then
+    script_path="$(readlink -f "$0")"
+    dotfiles_root="$(cd "$(dirname "$script_path")/../../.." && pwd)"
+    candidate="$dotfiles_root/skills/AGENTS.md"
+    if [[ -f "$candidate" ]]; then
+      echo "$candidate"
+      return 0
+    fi
+  fi
+
+  candidate="$HOME/Documents/Github/dhyan/dotfiles/skills/AGENTS.md"
+  if [[ -f "$candidate" ]]; then
+    echo "$candidate"
+    return 0
+  fi
+
+  return 1
+}
+
+SRC="$(resolve_source 2>/dev/null)" || {
+  echo "Error: source not found. Looked for skills/AGENTS.md relative to $0 and at \$HOME/Documents/Github/dhyan/dotfiles/skills/AGENTS.md" >&2
+  exit 1
+}
+
+DST="$PWD/AGENTS.md"
+
+if [[ -e "$DST" ]]; then
+  if [[ -d "$DST" ]]; then
+    echo "Error: $DST exists and is a directory — refusing to overwrite" >&2
+    exit 1
+  fi
+  TS="$(date +%Y%m%d-%H%M%S)"
+  BAK="${DST}.bak.${TS}"
+  if [[ -e "$BAK" ]]; then
+    i=1
+    while [[ -e "${BAK}.${i}" ]]; do ((i++)); done
+    BAK="${BAK}.${i}"
+  fi
+  mv -- "$DST" "$BAK"
+  echo "Backed up existing AGENTS.md -> $(basename "$BAK")"
+fi
+
+if ! cp -- "$SRC" "$DST" 2>/dev/null; then
+  echo "Error: failed to copy $SRC -> $DST (check write permission for $PWD)" >&2
+  exit 1
+fi
+
+echo "Copied $(basename "$SRC") -> $DST"
