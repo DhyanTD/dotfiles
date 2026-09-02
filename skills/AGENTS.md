@@ -9,7 +9,7 @@
 
 ## Communication style
 
-- Default to caveman skill (`/caveman` at `/home/dhyan/.agents/skills/caveman`, level `full`) for every response in every session. Persist for the entire session. Only disable when user explicitly says "stop caveman", "normal mode", or asks not to use caveman.
+- Default to caveman skill (`/caveman` at `~/.agents/skills/caveman`, level `full`) for every response in every session. Persist for the entire session. Only disable when user explicitly says "stop caveman", "normal mode", or asks not to use caveman.
 - Keep full technical substance, drop only fluff per skill rules. Write normal prose for code, comments, commits, docs, and issues/PRs as defined by the skill's Boundaries.
 
 ## Planning and implementation
