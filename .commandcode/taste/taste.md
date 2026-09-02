@@ -4,3 +4,4 @@
 - Prefers non-destructive file operations with automatic backup — if destination file exists, rename existing to timestamped backup (e.g., `.bak.<timestamp>`) instead of overwriting. Confidence: 0.9
 - Prefers single-command, stow-managed executables (`executables/.local/bin` -> `~/.local/bin`) that operate on the current working directory (CWD) to deploy repo files. Confidence: 0.8
 - Prefers documentation for new executables/tools under docs/ covering usage and future upgrade/maintenance. Confidence: 0.75
+- Prefers caveman skill (`/caveman` at `full` level) as default communication style for every session via `skills/AGENTS.md`, only disabled when explicitly told to stop/not use it (e.g., "stop caveman", "normal mode"). Confidence: 0.95
