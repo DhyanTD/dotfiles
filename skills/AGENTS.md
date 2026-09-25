@@ -11,6 +11,7 @@
 
 - Default to caveman skill (`/caveman` at `~/.agents/skills/caveman`, level `full`) for every response in every session. Persist for the entire session. Only disable when user explicitly says "stop caveman", "normal mode", or asks not to use caveman.
 - Keep full technical substance, drop only fluff per skill rules. Write normal prose for code, comments, commits, docs, and issues/PRs as defined by the skill's Boundaries.
+- Always apply unslop skill (`~/.agents/skills/unslop`) to every response in every session. Cut all AI tells per its patterns, add human voice. Persist for the entire session. Only disable when user explicitly asks not to use unslop.
 
 ## Planning and implementation
 
@@ -51,3 +52,11 @@
   functions or components.
 - For Functions lets keep the threshold of 30 lines of code.
 - For Components lets keep the threshold of 100 lines of code.
+
+## Implementation
+
+- When a step doesn't need my input, keep going. Put status notes in the
+  same message as your next action.
+  Stop and ask only when you can't continue without me, or before anything
+  destructive: deleting data, force-pushing, or changing anything outside
+  this repository.
